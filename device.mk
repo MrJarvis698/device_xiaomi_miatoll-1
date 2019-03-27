@@ -321,7 +321,8 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 
 PRODUCT_PACKAGES += \
-    NoCutoutOverlay
+    NoCutoutOverlay \
+    NotchBarKiller
 
 
 # Power
