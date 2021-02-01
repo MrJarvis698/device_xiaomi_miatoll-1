@@ -5,7 +5,7 @@
 #
 
 # Inherit proprietary blobs
-include vendor/xiaomi/miatoll/BoardConfigVendor.mk
+-include vendor/xiaomi/miatoll/BoardConfigVendor.mk
 
 DEVICE_PATH := device/xiaomi/miatoll
 
