@@ -2,8 +2,11 @@
 allow system_app kcal_dev:file rw_file_perms;
 allow system_app kcal_dev:dir search;
 
-# USB Fastcharge
+# Fastcharge
 allow system_app sysfs_fcharge:file { open read getattr write };
+
+# USB Fastcharge
+allow system_app sysfs_usbcharge:file { open read getattr write };
 
 # FPS Info
 allow system_app sysfs_fps:file rw_file_perms;

@@ -26,17 +26,17 @@ import androidx.preference.PreferenceManager;
 
 import com.xiaomi.parts.DeviceSettings;
 
-public class Fastcharge implements OnPreferenceChangeListener {
+public class USBFastcharge implements OnPreferenceChangeListener {
 
     private Context mContext;
 
-    public Fastcharge(Context context) {
+    public USBFastcharge(Context context) {
         mContext = context;
     }
 
     public static String getFile() {
-        if (FileUtils.fileWritable(DeviceSettings.FASTCHARGE_PATH)) {
-            return DeviceSettings.FASTCHARGE_PATH;
+        if (FileUtils.fileWritable(DeviceSettings.USB_FASTCHARGE_PATH)) {
+            return DeviceSettings.USB_FASTCHARGE_PATH;
         }
         return null;
     }
@@ -53,8 +53,8 @@ public class Fastcharge implements OnPreferenceChangeListener {
     public boolean onPreferenceChange(Preference preference, Object value) {
         final String key = preference.getKey();
         switch (key) {
-            case DeviceSettings.PREF_FASTCHARGE:
-                FileUtils.setValue(DeviceSettings.FASTCHARGE_PATH, (boolean) value);
+            case DeviceSettings.PREF_USB_FASTCHARGE:
+                FileUtils.setValue(DeviceSettings.USB_FASTCHARGE_PATH, (boolean) value);
                 break;
 
             default:
