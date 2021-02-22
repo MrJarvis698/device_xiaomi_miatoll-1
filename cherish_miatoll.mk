@@ -10,6 +10,9 @@ $(call inherit-product, device/xiaomi/miatoll/device.mk)
 # Inherit some common Cherish stuff
 $(call inherit-product, vendor/cherish/config/common_full_phone.mk)
 
+# Official
+CHERISH_BUILD_TYPE:= OFFICIAL
+
 # Gapps
 CHERISH_WITHGAPPS := true
 TARGET_GAPPS_ARCH := arm64
