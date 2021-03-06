@@ -115,6 +115,13 @@ TARGET_SCREEN_WIDTH := 1080
 # Camera
 PRODUCT_PACKAGES += \
     libgui_vendor \
+    GalleryGo \
+    GCamGOPrebuilt
+
+# Prebuilt Packages
+PRODUCT_PACKAGES += \
+GalleryGo \
+GCamGOPrebuilt
 
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
