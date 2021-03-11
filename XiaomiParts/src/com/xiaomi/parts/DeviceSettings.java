@@ -57,6 +57,9 @@ public class DeviceSettings extends PreferenceFragment implements
     public static final String PREF_MSM_TOUCHBOOST = "touchboost";
     public static final String MSM_TOUCHBOOST_PATH = "/sys/module/msm_performance/parameters/touchboost";
 
+    public static final String PREF_GPUBOOST = "gpuboost";
+    public static final String GPUBOOST_SYSTEM_PROPERTY = "persist.xiaomiparts.gpu_profile";
+
     private Preference mKcal;
     private Preference mClearSpeakerPref;
     private Preference mAmbientPref;
@@ -65,6 +68,7 @@ public class DeviceSettings extends PreferenceFragment implements
     private SecureSettingListPreference mPreset;
     private SecureSettingSwitchPreference mFastcharge;
     private SecureSettingSwitchPreference mTouchboost;
+    private SecureSettingListPreference mGPUBOOST;
     private static Context mContext;
 
     @Override
@@ -129,6 +133,11 @@ public class DeviceSettings extends PreferenceFragment implements
         mEnableDirac.setOnPreferenceChangeListener(this);
         mEnableDirac.setChecked(enhancerEnabled);
 
+        mGPUBOOST = (SecureSettingListPreference) findPreference(PREF_GPUBOOST);
+        mGPUBOOST.setValue(FileUtils.getStringProp(GPUBOOST_SYSTEM_PROPERTY, "0"));
+        mGPUBOOST.setSummary(mGPUBOOST.getEntry());
+        mGPUBOOST.setOnPreferenceChangeListener(this);
+
         mHeadsetType = (SecureSettingListPreference) findPreference(PREF_HEADSET);
         mHeadsetType.setOnPreferenceChangeListener(this);
 
@@ -188,6 +197,11 @@ public class DeviceSettings extends PreferenceFragment implements
                 } else {
                     this.getContext().stopService(fpsinfo);
                 }
+                break;
+            case PREF_GPUBOOST:
+                mGPUBOOST.setValue((String) value);
+                mGPUBOOST.setSummary(mGPUBOOST.getEntry());
+                FileUtils.setStringProp(GPUBOOST_SYSTEM_PROPERTY, (String) value);
                 break;
             default:
                 break;
