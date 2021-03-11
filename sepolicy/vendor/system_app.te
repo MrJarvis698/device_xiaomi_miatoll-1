@@ -11,6 +11,11 @@ allow system_app sysfs_fps:file rw_file_perms;
 # Touchboost
 allow system_app sysfs_touchboost:file { open read getattr write };
 
+# GPU Boost
+set_prop(system_app, boost_prop);
+get_prop(system_app, boost_prop);
+allow system_app boost_prop:property_service set;
+
 # allow system apps to read battery status
 r_dir_file(system_app, sysfs_battery_supply)
 
