@@ -344,10 +344,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
 
-PRODUCT_PACKAGES += \
-    RemovePackages
-
-# Ril
+# RIL
 PRODUCT_PACKAGES += \
     libjson \
     librmnetctl
